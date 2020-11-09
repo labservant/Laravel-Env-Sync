@@ -3,6 +3,7 @@
 namespace Aranyasen\LaravelEnvSync\Console;
 
 use Aranyasen\LaravelEnvSync\Events\MissingEnvVars;
+use Aranyasen\LaravelEnvSync\Events\NoMissingEnvVars;
 use Aranyasen\LaravelEnvSync\SyncService;
 
 class CheckCommand extends BaseCommand
@@ -51,6 +52,7 @@ class CheckCommand extends BaseCommand
 
         if (count($diffs) === 0) {
             $this->info(sprintf("Your %s file is already in sync with %s", basename($dest), basename($src)));
+            NoMissingEnvVars::dispatch();
             return 0;
         }
 
