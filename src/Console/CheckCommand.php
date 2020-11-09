@@ -52,7 +52,7 @@ class CheckCommand extends BaseCommand
 
         if (count($diffs) === 0) {
             $this->info(sprintf("Your %s file is already in sync with %s", basename($dest), basename($src)));
-            NoMissingEnvVars::dispatch();
+            MissingEnvVars::dispatch();
             return 0;
         }
 

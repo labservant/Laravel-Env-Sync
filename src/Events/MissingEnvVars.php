@@ -10,7 +10,7 @@ class MissingEnvVars
 
     public $diffs;
 
-    public function __construct($diffs)
+    public function __construct($diffs = [])
     {
         $this->diffs = $diffs;
     }
